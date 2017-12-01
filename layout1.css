@@ -1,0 +1,76 @@
+/*This code, with modifications, from https://www.w3schools.com/css/css_website_layout.asp*
+Goal is now to finish the tutorial on the above page and produce differently sized columns...
+Tutorial isn't very good; code doesn't transfer well to this system; I have to modify.*/
+
+.header
+{
+
+    background-color: #808080;
+    text-align: center;
+    padding: 20px;
+    border: ridge brown 10px;
+}
+
+/*navbar container*/
+.topnav
+{
+    overflow: hidden;
+    background-color: #333; /*equivalent to #333333 in hex; just shorthand*/
+    text-align: center; /*combined with inline-block below to center links*/
+}
+
+/*Navbar links */
+.topnav a
+{
+    display: inline-block; /*used this instead of float: left to get links in a single row*/
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px; /*4 values, clockwise from top: top, right, bottom, left; here, top&bottom = 14px, left&right = 16px*/
+    text-decoration: none;
+}
+
+/*Change color on hover*/
+.topnav a:hover
+{
+    background-color: #ddd;
+    color: black;
+}
+
+/*Establish general class of columns*/
+.column
+{
+    float: left;
+}
+
+/*for left and right columns*/
+.column.side
+{
+    width: 25%;
+}
+
+
+/*middle column*/
+.column.middle
+{
+    width: 50%;
+}
+
+
+/*Clear floats after columns*/
+.row:after
+{
+    content: "";/*not sure what this means*/
+    display: table;
+    clear: both;/*both what?*/
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less)
+To create a 2-column layout, change the width to 50%. To create a 4-column layout, use 25%, etc.
+For more on how the @media rule works, look in the tutorial's CSS3 Media Queries chapter: https://www.w3schools.com/css/css3_mediaqueries.asp */
+@media (max-width: 600px)
+{
+    .column.side, .column.middle
+    {
+        width: 100%;
+    }
+}
